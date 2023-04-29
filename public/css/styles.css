@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+* {
+  font-family: 'League Spartan', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: hsl(222, 26%, 31%);
+  height: 3000px;
+}
+
+#calculator {
+  width: 430px;
+}
+
+#calculator-buttons-container, #calculator-last-row {
+  background-color: hsl(223, 31%, 20%);
+  box-sizing: border-box;
+  width: inherit;
+  display: grid;
+  gap: 20px;
+}
+
+#calculator-buttons-container {
+  padding: 25px 25px 0;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 8px 8px 0 0;
+}
+
+#calculator-last-row {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 25px;
+  border-radius: 0 0 8px 8px;
+}
+
+.calc-keys {
+  color: hsl(221, 14%, 31%);
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 8px 0;
+  border: none;
+  border-radius: 5px;
+  border-bottom: 3.5px solid hsl(28, 16%, 65%);
+  background-color: hsl(30, 25%, 89%);
+}
+
+.calc-keys:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.calc-delete-key, .calc-equals-key, .calc-reset-key {
+  font-size: 1.4rem;
+  color: white;
+  background-color: hsl(225, 21%, 49%);
+  border-bottom: 3.5px solid hsl(224, 28%, 35%);
+}
+
+.calc-reset, .calc-equals-key {
+  padding: 12px 0;
+}
+
+.calc-equals-key {
+  background-color: hsl(6, 63%, 50%);
+  border-bottom: 3.5px solid hsl(6, 70%, 34%);
+}
+
+.calculator-output-container {
+  box-sizing: border-box;
+  width: inherit;
+  height: 100px;
+  background-color: hsl(224, 36%, 15%);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.calculator-output {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: white;
+}
