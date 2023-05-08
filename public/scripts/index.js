@@ -1,5 +1,18 @@
 const calcKeys = document.querySelectorAll(".calc-keys");
 const calcOutput = document.querySelector(".calculator-output");
+const toggleChange = document.querySelector(".change-mode");
+
+// Theme
+const bodyBgOne = document.querySelectorAll(".body-bg-one");
+const themeOneText = document.querySelectorAll(".theme-one-text");
+const keysBorderOne = document.querySelectorAll(".keys-border-one");
+const bgResetDeleteOne = document.querySelectorAll(".bg-reset-delete-one");
+const buttonsContainerColorOne = document.querySelectorAll(".buttons-container-color-one");
+const outputThemeOne = document.querySelector(".output-theme-one");
+const bgEqualOne = document.querySelector(".bg-equal-one");
+const calcUpperThemeOne = document.querySelectorAll(".calc-upper-theme-one");
+const sliderBgOne = document.querySelector(".slider-bg-one");
+const thumbBgOne = document.querySelector(".thumb-bg-one");
 
 let calculation = [];
 
@@ -8,19 +21,18 @@ calcKeys.forEach(keys => {
     const { value } = e.target;
     const lastOperator = calculation.slice(calculation.length -1); // ! We're just going to spread this single value on the isNaN() method, to lessen code a little bit
 
-    const countNaN = calculation.reduce((accu, currVal) => {
-      const notANumber = isNaN(currVal);
-      if (notANumber) accu++;
+    const countNaN =  calculation.reduce((accu, currVal) => {
+      const isNotANumber = isNaN(currVal);
+      isNotANumber && accu++;
       return accu;
-    }, 1)
+    }, 0);
 
     if (value === "=") {
       if (calcOutput.innerText === "") return; // ! If calcOutput is empty then just return.
       else {
         const result = (eval(calculation.join(""))).toString(); // ! eval method returns a number as an output, so we converted it to string first so that we can use the split method on it.
         calcOutput.innerText = result;
-        // counter = 0;
-        // operatorCounter = 0;
+        
         calculation = [...result];
         console.log(calculation);
       }
@@ -33,6 +45,7 @@ calcKeys.forEach(keys => {
       calculation = [];
       console.log(calculation);
     } else {
+      
       // This is for the MDAS operators + the "."
       if (isNaN(value)) {
         if (isNaN(...lastOperator)) { // ? Did that do the trick?
@@ -40,21 +53,30 @@ calcKeys.forEach(keys => {
         } else {
           // const calcSliced = calculation.slice(0, -1);
           // const evaluate = (eval(...calcSliced)).toString;
-          if (countNaN <= 1) {
+          if (countNaN <= 0) {
             calcOutput.innerText += value;
             value === "x" ? calculation.push("*") : calculation.push(value);
             console.log(`NaN: ${countNaN}`, `calculation: ${calculation}`);
+            console.log(`This ran because countNaN is less than or equal to 0:`, countNaN);
           } else {
-            console.log("Test?");
-            // ! Something wrong with the logic. Will figure out next time.
-            const evalSliced = eval(calculation.slice(0, -1).join("")).toString();
-            const operatorSliced = calculation.slice(calculation.length - 1);
+            console.log("count is not less than or equal to 0", countNaN);
+            // // ! Check array / Wrong countNaN value (?)
+            // // ! Something wrong with the logic. Will figure out next time.
 
-            const newCalculation = [...evalSliced, ...operatorSliced];
+            value === "x" ? calculation.push("*") : calculation.push(value);
+            const sliced = calculation.slice(0, -1).join("");
+            const evaluated = eval(sliced).toString();
+            // Operator added
+            const slicedOperator = calculation.slice(calculation.length -1);
 
-            calculation = newCalculation;
+            calculation = [...evaluated, ...slicedOperator];
+            
+            // We are creating a new array with the value * changed
+            const calcTimes = calculation.map(calc => {
+              return calc === "*" ? calc = "x" : calc;
+            })
 
-            calcOutput.innerText = newCalculation.join("");
+            calcOutput.innerText = calcTimes.join("");
           }
         }
       } else { // Appending and pushing numbers
@@ -62,10 +84,68 @@ calcKeys.forEach(keys => {
         calculation.push(value);
       }
     }
-
-    
   })
 })
+
+
+toggleChange.addEventListener("change", e => {
+  const value = e.target.value;
+
+  console.log(value);
+  if (value == 1) {
+    changeMode("one", "two");
+  } else if (value == 2) {
+    changeMode("two", "one");
+  }
+})
+
+// const buttonsContainerColorOne = document.querySelectorAll(".buttons-container-color-one");
+// const outputThemeOne = document.querySelector(".output-theme-one");
+// const bgEqualOne = document.querySelector(".bg-equal-one")
+// const sliderBgOne = document.querySelector(".slider-bg-one");
+// const thumbBgOne = document.querySelector(".thumbBgOne");
+
+const changeMode = (add, remove1) => {
+  bodyBgOne.forEach(bodyBg => {
+    bodyBg.classList.remove(`body-bg-${remove1}`);
+    bodyBg.classList.add(`body-bg-${add}`);
+  })
+  
+  outputThemeOne.classList.add(`output-theme-${add}`);
+  outputThemeOne.classList.remove(`output-theme-${remove1}`);
+
+  bgEqualOne.classList.add(`bg-equal-${add}`);
+  bgEqualOne.classList.remove(`bg-equal-${remove1}`);
+
+  themeOneText.forEach(themeOne => {
+    themeOne.classList.remove(`theme-${remove1}-text`);
+    themeOne.classList.add(`theme-${add}-text`);
+  })
+  keysBorderOne.forEach(keysBorder => {
+    keysBorder.classList.remove(`keys-border-${remove1}`);
+    keysBorder.classList.add(`keys-border-${add}`);
+  })
+  bgResetDeleteOne.forEach(bgResetDelete => {
+    bgResetDelete.classList.remove(`bg-reset-delete-${remove1}`);
+    bgResetDelete.classList.add(`bg-reset-delete-${add}`);
+  })
+  buttonsContainerColorOne.forEach(buttonsContainer => {
+    buttonsContainer.classList.remove(`buttons-container-color-${remove1}`);
+    buttonsContainer.classList.add(`buttons-container-color-${add}`);
+  })
+
+  calcUpperThemeOne.forEach(calcUpper => {
+    calcUpper.classList.remove(`calc-upper-theme-${remove1}`);
+    calcUpper.classList.add(`calc-upper-theme-${add}`);
+  })
+
+  sliderBgOne.classList.add(`slider-bg-${add}`);
+  sliderBgOne.classList.remove(`slider-bg-${remove1}`);
+
+  thumbBgOne.classList.add(`thumb-bg-${add}`);
+  thumbBgOne.classList.remove(`thumb-bg-${remove1}`);
+}
+
     // if (value === "x" || value === "/" || value === "+" || value === "-") {
 
       // else if () {

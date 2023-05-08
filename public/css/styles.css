@@ -8,16 +8,143 @@
 
 body {
   margin: 0;
-  background-color: hsl(222, 26%, 31%);
   height: 3000px;
 }
+/* Theme one colors */
+.body-bg-one {
+  background-color: hsl(222, 26%, 31%) !important;
+}
 
+.calc-upper-theme-one {
+  color: white !important;
+}
+
+.theme-one-text {
+  color: white !important; /* !important property. noice*/
+}
+
+.keys-border-one {
+  border-bottom-color: hsl(28, 16%, 65%) !important;
+  color: hsl(221, 14%, 31%) !important;
+  background-color: hsl(30, 25%, 89%) !important;
+}
+
+.keys-border-one:hover {
+  cursor: pointer;
+  background-color: white !important;
+}
+
+.bg-reset-delete-equal-color {
+  color: white !important;
+}
+
+.bg-reset-delete-one {
+  background-color: hsl(225, 21%, 49%) !important;
+  border-bottom: 3.5px solid hsl(224, 28%, 35%) !important;
+}
+
+.bg-reset-delete-one:hover {
+  background-color: hsl(210, 43%, 72%) !important;
+  cursor: pointer;
+}
+
+.bg-equal-one {
+  background-color: hsl(6, 63%, 50%) !important;
+  border-bottom: 3.5px solid hsl(6, 70%, 34%) !important;
+}
+
+.bg-equal-one:hover {
+  background-color: hsl(6, 71%, 65%) !important;
+  cursor: pointer;
+}
+
+.buttons-container-color-one {
+  background-color: hsl(223, 31%, 20%) !important;
+}
+
+.output-theme-one {
+  background-color: hsl(224, 36%, 15%) !important;
+}
+
+.range-bg-one {
+  background-color: hsl(222, 26%, 31%) !important;
+}
+
+.slider-bg-one::-webkit-slider-runnable-track {
+  background-color: hsl(223, 31%, 20%) !important;
+}
+
+.thumb-bg-one::-webkit-slider-thumb {
+  background-color: hsl(6, 63%, 50%) !important;
+}
+/* Theme two colors */
+.body-bg-two {
+  background-color: hsl(0, 0%, 90%) !important;
+}
+
+.calc-upper-theme-two {
+  color: hsl(60, 10%, 19%) !important;
+}
+
+.theme-two-text {
+  color: hsl(60, 10%, 19%) !important; /* !important property. noice*/
+}
+
+.keys-border-two {
+  border-bottom-color: hsl(35, 11%, 61%) !important;
+  color: hsl(60, 10%, 19%) !important;
+  background-color: hsl(45, 7%, 89%) !important;
+}
+
+.keys-border-two:hover {
+  cursor: pointer;
+  background-color: white !important;
+}
+
+.bg-reset-delete-two {
+  background-color: hsl(185, 42%, 37%) !important;
+  border-bottom: 3.5px solid hsl(185, 58%, 25%) !important;
+}
+
+.bg-reset-delete-two:hover {
+  background-color: hsl(210, 43%, 72%) !important;
+  cursor: pointer;
+}
+
+.buttons-container-color-two {
+  background-color: hsl(0, 5%, 81%) !important;
+}
+
+.output-theme-two {
+  background-color: hsl(0, 0%, 93%) !important;
+}
+
+.bg-equal-two {
+  background-color: hsl(25, 98%, 40%) !important;
+  border-bottom: 3.5px solid hsl(25, 99%, 27%) !important;
+}
+
+.bg-equal-two:hover {
+  background-color: hsl(6, 71%, 65%) !important;
+  cursor: pointer;
+}
+
+.slider-bg-two::-webkit-slider-runnable-track {
+  background-color: hsl(0, 5%, 81%) !important;
+}
+
+.thumb-bg-two::-webkit-slider-thumb {
+  background-color: hsl(25, 98%, 40%) !important;
+}
+
+/* Theme three colors */
+/* ! */
+/* - - - */
 #calculator {
   width: 430px;
 }
 
 #calculator-buttons-container, #calculator-last-row {
-  background-color: hsl(223, 31%, 20%);
   box-sizing: border-box;
   width: inherit;
   display: grid;
@@ -37,26 +164,17 @@ body {
 }
 
 .calc-keys {
-  color: hsl(221, 14%, 31%);
   font-weight: 700;
   font-size: 2rem;
   padding: 8px 0;
   border: none;
   border-radius: 5px;
-  border-bottom: 3.5px solid hsl(28, 16%, 65%);
-  background-color: hsl(30, 25%, 89%);
-}
-
-.calc-keys:hover {
-  cursor: pointer;
-  background-color: white;
+  border-bottom: 3.5px solid;
 }
 
 .calc-delete-key, .calc-equals-key, .calc-reset-key {
   font-size: 1.4rem;
-  color: white;
-  background-color: hsl(225, 21%, 49%);
-  border-bottom: 3.5px solid hsl(224, 28%, 35%);
+  transition: all 0.15s;
 }
 
 .calc-reset, .calc-equals-key {
@@ -64,15 +182,13 @@ body {
 }
 
 .calc-equals-key {
-  background-color: hsl(6, 63%, 50%);
-  border-bottom: 3.5px solid hsl(6, 70%, 34%);
+  
 }
 
 .calculator-output-container {
   box-sizing: border-box;
   width: inherit;
   height: 100px;
-  background-color: hsl(224, 36%, 15%);
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 25px;
@@ -84,5 +200,68 @@ body {
 .calculator-output {
   font-size: 2.6rem;
   font-weight: bold;
-  color: white;
 }
+
+.change-mode {
+  -webkit-appearance: none;
+  width: 56px;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.change-mode::-webkit-slider-runnable-track {
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.change-mode::-webkit-slider-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  -webkit-appearance: none;
+}
+
+.theme-text, .theme-numbers {
+  font-size: 0.6rem;
+}
+
+.company-name, .theme-numbers, .theme-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.theme-numbers {
+  letter-spacing: 14px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.theme-text {
+  letter-spacing: 1px;
+}
+
+.company-name {
+  flex: 1;
+}
+
+.calculator-top {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
+
+/* Theme #2 */
+/* .body-theme {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.theme-two-text {
+  color: hsl(60, 10%, 19%);
+} */
