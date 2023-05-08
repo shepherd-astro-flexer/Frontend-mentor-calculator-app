@@ -93,57 +93,63 @@ toggleChange.addEventListener("change", e => {
 
   console.log(value);
   if (value == 1) {
-    changeMode("one", "two");
+    changeMode("one", "two", "three");
   } else if (value == 2) {
-    changeMode("two", "one");
+    changeMode("two", "one", "three");
+  } else if (value == 3) {
+    changeMode("three", "one", "two");
   }
 })
 
-// const buttonsContainerColorOne = document.querySelectorAll(".buttons-container-color-one");
-// const outputThemeOne = document.querySelector(".output-theme-one");
-// const bgEqualOne = document.querySelector(".bg-equal-one")
-// const sliderBgOne = document.querySelector(".slider-bg-one");
-// const thumbBgOne = document.querySelector(".thumbBgOne");
-
-const changeMode = (add, remove1) => {
+const changeMode = (add, remove1, remove2) => {
   bodyBgOne.forEach(bodyBg => {
     bodyBg.classList.remove(`body-bg-${remove1}`);
+    bodyBg.classList.remove(`body-bg-${remove2}`);
     bodyBg.classList.add(`body-bg-${add}`);
   })
   
   outputThemeOne.classList.add(`output-theme-${add}`);
   outputThemeOne.classList.remove(`output-theme-${remove1}`);
+  outputThemeOne.classList.remove(`output-theme-${remove2}`);
 
   bgEqualOne.classList.add(`bg-equal-${add}`);
   bgEqualOne.classList.remove(`bg-equal-${remove1}`);
+  bgEqualOne.classList.remove(`bg-equal-${remove2}`);
 
   themeOneText.forEach(themeOne => {
     themeOne.classList.remove(`theme-${remove1}-text`);
+    themeOne.classList.remove(`theme-${remove2}-text`);
     themeOne.classList.add(`theme-${add}-text`);
   })
   keysBorderOne.forEach(keysBorder => {
     keysBorder.classList.remove(`keys-border-${remove1}`);
+    keysBorder.classList.remove(`keys-border-${remove2}`);
     keysBorder.classList.add(`keys-border-${add}`);
   })
   bgResetDeleteOne.forEach(bgResetDelete => {
+    bgResetDelete.classList.remove(`bg-reset-delete-${remove2}`);
     bgResetDelete.classList.remove(`bg-reset-delete-${remove1}`);
     bgResetDelete.classList.add(`bg-reset-delete-${add}`);
   })
   buttonsContainerColorOne.forEach(buttonsContainer => {
     buttonsContainer.classList.remove(`buttons-container-color-${remove1}`);
+    buttonsContainer.classList.remove(`buttons-container-color-${remove2}`);
     buttonsContainer.classList.add(`buttons-container-color-${add}`);
   })
 
   calcUpperThemeOne.forEach(calcUpper => {
     calcUpper.classList.remove(`calc-upper-theme-${remove1}`);
+    calcUpper.classList.remove(`calc-upper-theme-${remove2}`);
     calcUpper.classList.add(`calc-upper-theme-${add}`);
   })
 
   sliderBgOne.classList.add(`slider-bg-${add}`);
   sliderBgOne.classList.remove(`slider-bg-${remove1}`);
+  sliderBgOne.classList.remove(`slider-bg-${remove2}`);
 
   thumbBgOne.classList.add(`thumb-bg-${add}`);
   thumbBgOne.classList.remove(`thumb-bg-${remove1}`);
+  thumbBgOne.classList.remove(`thumb-bg-${remove2}`);
 }
 
     // if (value === "x" || value === "/" || value === "+" || value === "-") {

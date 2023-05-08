@@ -8,7 +8,10 @@
 
 body {
   margin: 0;
-  height: 3000px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Theme one colors */
 .body-bg-one {
@@ -138,7 +141,65 @@ body {
 }
 
 /* Theme three colors */
-/* ! */
+.body-bg-three {
+  background-color: hsl(268, 75%, 9%) !important;
+}
+
+.calc-upper-theme-three {
+  color: hsl(52, 100%, 62%) !important;
+}
+
+.theme-three-text {
+  color: hsl(60, 10%, 19%) !important; /* !important property. noice*/
+}
+
+.keys-border-three {
+  border-bottom-color: hsl(290, 70%, 36%) !important;
+  color: hsl(52, 100%, 62%) !important;
+  background-color:  hsl(268, 47%, 21%) !important;
+}
+
+.keys-border-three:hover {
+  cursor: pointer;
+  background-color: hsl(268, 43%, 42%) !important;
+}
+
+.bg-reset-delete-three {
+  background-color: hsl(281, 89%, 26%) !important;
+  border-bottom: 3.5px solid hsl(285, 91%, 52%) !important;
+}
+
+.bg-reset-delete-three:hover {
+  background-color: hsl(281, 86%, 37%)  !important;
+  cursor: pointer;
+}
+
+.buttons-container-color-three {
+  background-color: hsl(268, 71%, 12%) !important;
+}
+
+.output-theme-three {
+  background-color: hsl(268, 71%, 12%) !important;
+}
+
+.bg-equal-three {
+  color: hsl(268, 75%, 9%) !important; 
+  background-color: hsl(176, 100%, 44%) !important;
+  border-bottom: 3.5px solid hsl(177, 92%, 70%) !important;
+}
+
+.bg-equal-three:hover {
+  background-color: hsl(176, 100%, 80%) !important;
+  cursor: pointer;
+}
+
+.slider-bg-three::-webkit-slider-runnable-track {
+  background-color: hsl(268, 71%, 12%) !important;
+}
+
+.thumb-bg-three::-webkit-slider-thumb {
+  background-color: hsl(176, 100%, 44%) !important;
+}
 /* - - - */
 #calculator {
   width: 430px;
